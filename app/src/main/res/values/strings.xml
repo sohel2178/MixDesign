@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Mix Design</string>
+
+    <string-array name="slump_range">
+        <item>30-50 mm</item>
+        <item>80-100 mm</item>
+        <item>150-180 mm</item>
+    </string-array>
+
+</resources>
