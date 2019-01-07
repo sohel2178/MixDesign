@@ -7,4 +7,89 @@
         <item>150-180 mm</item>
     </string-array>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="form_title">Mix Design Form</string>
+    <string name="select_design_strength_of_concrete">Select Design Strength of Concrete</string>
+    <string name="select_absorption_capacity_of_ca">Select Absorption Capacity of Coarse Agg</string>
+    <string name="select_absorption_capacity_of_fa">Select Surface Moisture of Fine Agg</string>
+    <string name="select_exposure">Select Environmental Exposure</string>
+    <string name="select_concrete_type">Select Concrete Type</string>
+    <string name="select_slump">Select Slump Value</string>
+    <string name="select_air_entrained_type">Select Air Entrained Type</string>
+    <string name="sp_gr_coarse">Specific Gravity of Coarse Agg.</string>
+    <string name="sp_gr_fine">Specific Gravity of Fine Agg.</string>
+    <string name="fineness_modulus">Fineness Modulus of Fine Agg.</string>
+    <string name="dry_rodded_bulk_density">Dry Rodded Bulk Density of Coarse Agg.</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="title">Mix Design Title</string>
+    <string name="max_size_of_aggregate">Maximum Size of Coarse Agg</string>
+
+
+    <string-array name="ca_absorption_array">
+        <item>0.5 %</item>
+        <item>1.0 %</item>
+        <item>1.5 %</item>
+        <item>2.0 %</item>
+        <item>2.5 %</item>
+        <item>3.0 %</item>
+    </string-array>
+
+    <string-array name="fa_moisture_array">
+        <item>0.5 %</item>
+        <item>1.0 %</item>
+        <item>1.5 %</item>
+        <item>2.0 %</item>
+        <item>2.5 %</item>
+        <item>3.0 %</item>
+        <item>3.5 %</item>
+        <item>4.0 %</item>
+    </string-array>
+
+    <string-array name="exposure_array">
+        <item>MILD</item>
+        <item>MODERATE</item>
+        <item>SEVERE</item>
+        <item>VERY SEVERE</item>
+        <item>EXTREME</item>
+    </string-array>
+
+    <string-array name="max_size_array">
+        <item>10 mm</item>
+        <item>12.5 mm</item>
+        <item>20 mm</item>
+        <item>25 mm</item>
+        <item>40 mm</item>
+        <item>50 mm</item>
+        <item>70 mm</item>
+        <item>150 mm</item>
+    </string-array>
+
+    <string-array name="concrete_type_array">
+        <item>PLAIN CONCRETE</item>
+        <item>REINFORCED CONCRETE</item>
+    </string-array>
+
+    <string-array name="air_concrete_type_array">
+        <item>NON AIR_ENTRAINED</item>
+        <item>AIR_ENTRAINED</item>
+    </string-array>
+
+
+
+
+    <string-array name="stn_array">
+        <item>10 MPa</item>
+        <item>15 MPa</item>
+        <item>20 MPa</item>
+        <item>25 MPa</item>
+        <item>30 MPa</item>
+        <item>35 MPa</item>
+        <item>40 MPa</item>
+        <item>45 MPa</item>
+        <item>50 MPa</item>
+        <item>55 MPa</item>
+    </string-array>
+
 </resources>

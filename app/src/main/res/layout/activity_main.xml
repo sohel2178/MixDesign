@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:background="@android:color/white"
+    tools:context=".ui.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -30,7 +31,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#eeeeee"
+        android:background="#C0C0C0"
+        android:layout_marginTop="@dimen/small"
         android:layout_marginStart="@dimen/usual"
         android:layout_marginEnd="@dimen/usual"
         />

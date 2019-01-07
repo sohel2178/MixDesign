@@ -3,4 +3,9 @@
     <color name="colorPrimary">#ffc107</color>
     <color name="colorPrimaryDark">#b28704</color>
     <color name="colorAccent">#651fff</color>
+
+
+    <color name="light_gray">#D3D3D3</color>
+    <color name="dark_grey">#999999</color>
+    <color name="icon_color">#FFB74D</color>
 </resources>
