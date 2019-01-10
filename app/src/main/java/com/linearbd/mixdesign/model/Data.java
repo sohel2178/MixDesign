@@ -3,11 +3,13 @@ package com.linearbd.mixdesign.model;
 public class Data {
 
     private String title;
+    private String uid;
+    private String id;
     private long date_time;
     private double sp_gr_ca;
     private double sp_gr_fa;
     private double fm_fa;
-    private double bulk_density_fa;
+    private double bulk_density_ca;
     private int design_stn;
     private int maz_size_ca;
     private int slump_type;
@@ -21,6 +23,9 @@ public class Data {
     private int absorption_capacity_of_ca;
     private int surface_moisture_of_fa;
 
+
+    public Data() {
+    }
 
     public Data(String title) {
         this.title = title;
@@ -68,12 +73,12 @@ public class Data {
         this.fm_fa = fm_fa;
     }
 
-    public double getBulk_density_fa() {
-        return bulk_density_fa;
+    public double getBulk_density_ca() {
+        return bulk_density_ca;
     }
 
-    public void setBulk_density_fa(double bulk_density_fa) {
-        this.bulk_density_fa = bulk_density_fa;
+    public void setBulk_density_ca(double bulk_density_ca) {
+        this.bulk_density_ca = bulk_density_ca;
     }
 
     public int getDesign_stn() {
@@ -138,5 +143,21 @@ public class Data {
 
     public void setSurface_moisture_of_fa(int surface_moisture_of_fa) {
         this.surface_moisture_of_fa = surface_moisture_of_fa;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Mix Design</string>
 
+    <!--Original-->
+    <!-- <string name="ad_unit_id">ca-app-pub-5474497946967422/8916710227</string>
+    <string name="ad_app_id">ca-app-pub-5474497946967422~5203985489</string>
+    <string name="ad_unit_id_inters">ca-app-pub-5474497946967422/5139572152</string>-->
+
+    <!--Test Add-->
+    <string name="ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ad_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="ad_unit_id_inters">ca-app-pub-3940256099942544/1033173712</string>
+
     <string-array name="slump_range">
         <item>30-50 mm</item>
         <item>80-100 mm</item>
@@ -25,6 +35,11 @@
     <string name="save">Save</string>
     <string name="title">Mix Design Title</string>
     <string name="max_size_of_aggregate">Maximum Size of Coarse Agg</string>
+    <string name="documentation">Documentation</string>
+    <string name="new_txt">New</string>
+
+    <string name="definition">Concrete mix design is the process of finding right proportions of cement, sand and aggregates for concrete to achieve target strength in structures. So, concrete mix design can be stated as Concrete Mix = Cement:Sand:Aggregates\n\nThe concrete mix design involves various steps, calculations and laboratory testing to find right mix proportions.
+</string>
 
 
     <string-array name="ca_absorption_array">
@@ -75,8 +90,6 @@
         <item>NON AIR_ENTRAINED</item>
         <item>AIR_ENTRAINED</item>
     </string-array>
-
-
 
 
     <string-array name="stn_array">

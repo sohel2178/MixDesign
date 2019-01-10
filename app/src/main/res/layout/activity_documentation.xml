@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.documentation.DocumentationActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/black"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mix Design"
+                android:textStyle="bold"
+                android:textSize="@dimen/large_text"
+                android:padding="@dimen/small"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#c0c0c0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/definition"
+                android:textSize="@dimen/medium_text"
+                android:textColor="#555555"
+                android:padding="@dimen/small"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Design Procedures"
+                android:textStyle="bold"
+                android:textSize="@dimen/large_text"
+                android:padding="@dimen/small"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#c0c0c0"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/usual"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1. Assume Standard Deviation"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/table_std"
+                    android:scaleType="fitXY"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="From Above Table Assume Standard Deviation for Design Concrete Grade"
+                    android:textSize="@dimen/medium_text"
+                    android:textColor="#555555"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/usual"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2. Find Himsworth Constant"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/table_himsworth"
+                    android:scaleType="fitXY"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Find Himsworth Constant for % of result allowed to fall below specified Design Strength with necessary interpolation."
+                    android:textSize="@dimen/medium_text"
+                    android:textColor="#555555"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/usual"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3. Calculate Mean Strength"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calculate Mean Strength(fm) from Design Strength(fmin), Standard Deviation(s) and Himsworth Constant(k) by the following formula\n\n\t fm=fmin+ks"
+                    android:textSize="@dimen/medium_text"
+                    android:textColor="#555555"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/usual"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4. Calculate Water-Cement Ratio"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/usual">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="a). Calculate Water-Cement Ratio from Strength Criteria"
+                        android:textSize="@dimen/medium_text"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/table_water_cement_one"
+                        android:scaleType="fitXY"
+                        android:padding="@dimen/small"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Find Water-Cement Ratio from the above Table for Mean Strength"
+                        android:textSize="@dimen/medium_text"
+                        android:textColor="#555555"
+                        android:padding="@dimen/small"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/usual">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="b). Calculate Water-Cement Ratio from Exposure Criteria"
+                        android:textSize="@dimen/medium_text"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/table_water_cement_two"
+                        android:scaleType="fitXY"
+                        android:padding="@dimen/small"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Find Water-Cement Ratio from the above Table for Given Exposure Conditions"
+                        android:textSize="@dimen/medium_text"
+                        android:textColor="#555555"
+                        android:padding="@dimen/small"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Take Min Water-Cement from above calculations"
+                    android:textSize="@dimen/medium_text"
+                    android:textColor="#555555"
+                    android:padding="@dimen/small"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/usual"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5. Find Water Content(kg/cum) and air content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/table_water_content"
+                    android:scaleType="fitXY"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="From Above Table Find Water content for Slump Value, Maximum size of Coarse Aggregate and Air entrained Property"
+                    android:textSize="@dimen/medium_text"
+                    android:textColor="#555555"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/usual"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6. Calculate Cement Content(kg/cum)"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calculate Cement Content from water content and water-cement ratio by the following formula.\n\n\tCement Content = Water Content/Water Cement Ratio"
+                    android:textSize="@dimen/medium_text"
+                    android:textColor="#555555"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/usual"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7. Find Dry Bulk Volume of CA per Unit Volume of Concrete"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/table_dry_bulk_vol"
+                    android:scaleType="fitXY"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="From Above Table Find Dry Bulk volume of Coarse Aggregate per Unit volume of Concrete for given maximun size of Coarse Aggregate,Fineness Modulus of Fine Aggregate"
+                    android:textSize="@dimen/medium_text"
+                    android:textColor="#555555"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/usual"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8. Calculate Weight of Coarse Aggregate per cum"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calculate the weight of Coarse Aggregate from the following formula\n\n\tWeight of Coarse Aggregate = Dry Rodded volume of CA\n\t\t * Dry Bulk Volume of CA per unit Volume of Concrete"
+                    android:textSize="@dimen/medium_text"
+                    android:textColor="#555555"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/usual"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9. Find Density of Concrete"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/table_density_of_concrete"
+                    android:scaleType="fitXY"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="From Above Table Find Density of Concrete for given maximum size of CA and type of Concrete"
+                    android:textSize="@dimen/medium_text"
+                    android:textColor="#555555"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/usual"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10. Calculate the Weight of Fine Aggregate"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calculate the weight of Fine Aggregate by the following Formula\n\n\t Weight of Fine Aggregate = Density of Concrete\n\t - (Weight of Water+Weight of Cement+Weight of CA)"
+                    android:textSize="@dimen/medium_text"
+                    android:textColor="#555555"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

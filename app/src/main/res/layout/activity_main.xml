@@ -1,40 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        app:titleTextColor="@android:color/white"
-        android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        />
+        android:orientation="vertical">
 
-    <Button
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="@android:color/black"
+            android:background="@color/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/documentation"
+                android:id="@+id/documentation"
+                android:textSize="12sp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/fab_add"
+                android:layout_gravity="end"
+                android:text="@string/new_txt"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/new_design"
+                android:textSize="12sp"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#C0C0C0"
+            android:layout_marginTop="@dimen/small"
+            android:layout_marginStart="@dimen/usual"
+            android:layout_marginEnd="@dimen/usual"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mix Design List"
+            android:padding="@dimen/small"
+            android:id="@+id/list_title"
+            android:textSize="@dimen/large_text"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_margin="@dimen/usual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerView">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/fab_add"
-        android:layout_gravity="end"
-        android:text="New"
-        android:id="@+id/new_design"
-        android:textSize="12sp"/>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/ad_unit_id">
+    </com.google.android.gms.ads.AdView>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#C0C0C0"
-        android:layout_marginTop="@dimen/small"
-        android:layout_marginStart="@dimen/usual"
-        android:layout_marginEnd="@dimen/usual"
-        />
-
-</LinearLayout>
+</RelativeLayout>

@@ -12,7 +12,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatSpinner;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -145,17 +144,19 @@ public class DesignFormFragment extends DialogFragment implements View.OnClickLi
 
                 try{
                     double spCa = Double.parseDouble(spCaTxt);
-                    double spFa = Double.parseDouble(spFaTxt);
-                    double spFM = Double.parseDouble(spFMTxt);
-                    double spBulkDensity = Double.parseDouble(spBulkDensityTxt);
-
                     data.setSp_gr_ca(spCa);
+
+                    double spFa = Double.parseDouble(spFaTxt);
                     data.setSp_gr_fa(spFa);
+
+                    double spFM = Double.parseDouble(spFMTxt);
                     data.setFm_fa(spFM);
-                    data.setBulk_density_fa(spBulkDensity);
+
+                    double spBulkDensity = Double.parseDouble(spBulkDensityTxt);
+                    data.setBulk_density_ca(spBulkDensity);
 
                 }catch (Exception e){
-                    return;
+                    e.printStackTrace();
                 }
 
                 data.setDesign_stn(spDesignStn.getSelectedItemPosition());
@@ -166,6 +167,13 @@ public class DesignFormFragment extends DialogFragment implements View.OnClickLi
                 data.setExposure(spExposure.getSelectedItemPosition());
                 data.setAbsorption_capacity_of_ca(spAbsorptionCapacityofCA.getSelectedItemPosition());
                 data.setSurface_moisture_of_fa(spSurfaceMoistureOfFA.getSelectedItemPosition());
+
+                boolean valid = mPresenter.validate(data);
+                if(!valid){
+                    return;
+                }
+
+                mPresenter.save(data);
                 break;
         }
 
@@ -179,5 +187,49 @@ public class DesignFormFragment extends DialogFragment implements View.OnClickLi
         spSurfaceMoistureOfFA.setSelection(3);
         spExposure.setSelection(1);
         spConcreteType.setSelection(1);
+    }
+
+    @Override
+    public void clearPreError() {
+        tiTitle.setErrorEnabled(false);
+        tiSpGrCA.setErrorEnabled(false);
+        tiSpGrFA.setErrorEnabled(false);
+        tiFM.setErrorEnabled(false);
+        tiBulkDensity.setErrorEnabled(false);
+    }
+
+    @Override
+    public void showError(String message, int field) {
+        switch (field){
+            case 1:
+                tiTitle.setError(message);
+                etTitle.requestFocus();
+                break;
+
+            case 2:
+                tiSpGrCA.setError(message);
+                etSpGrCA.requestFocus();
+                break;
+
+            case 3:
+                tiSpGrFA.setError(message);
+                etSpGrFA.requestFocus();
+                break;
+
+            case 4:
+                tiFM.setError(message);
+                etFM.requestFocus();
+                break;
+
+            case 5:
+                tiBulkDensity.setError(message);
+                etBulkDensity.requestFocus();
+                break;
+        }
+    }
+
+    @Override
+    public void complete() {
+        dismiss();
     }
 }

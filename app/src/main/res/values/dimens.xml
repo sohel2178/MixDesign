@@ -5,6 +5,7 @@
     <dimen name="medium">8dp</dimen>
     <dimen name="usual">10dp</dimen>
     <dimen name="large">16dp</dimen>
+    <dimen name="sign_in_button_height">64dp</dimen>
 
     <dimen name="large_text">18sp</dimen>
     <dimen name="medium_text">14sp</dimen>
