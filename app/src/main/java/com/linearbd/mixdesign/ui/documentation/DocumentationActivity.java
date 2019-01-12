@@ -15,5 +15,6 @@ public class DocumentationActivity extends PrebaseActivity {
 
         setupToolbar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(getString(R.string.documentation));
     }
 }

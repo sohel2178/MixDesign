@@ -40,6 +40,15 @@
 
     <string name="definition">Concrete mix design is the process of finding right proportions of cement, sand and aggregates for concrete to achieve target strength in structures. So, concrete mix design can be stated as Concrete Mix = Cement:Sand:Aggregates\n\nThe concrete mix design involves various steps, calculations and laboratory testing to find right mix proportions.
 </string>
+    <string name="design_parameters">Design Parameters</string>
+    <string name="design_stn">Design Strength</string>
+    <string name="slump">Slump</string>
+    <string name="concrete_type">Concrete Type</string>
+    <string name="air_entrained_type">Air Entrained Type</string>
+    <string name="exposure_cond">Exposure Condition</string>
+    <string name="absorption_capacity_of_ca">Absorption Capacity of CA</string>
+    <string name="moisture_content_of_fa">Surface Moisture of FA</string>
+    <string name="calculation">Calculations</string>
 
 
     <string-array name="ca_absorption_array">

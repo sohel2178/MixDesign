@@ -1,6 +1,7 @@
 package com.linearbd.mixdesign.ui.login;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;

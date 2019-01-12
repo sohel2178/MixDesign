@@ -21,11 +21,6 @@ public class HimsWorthConstant {
             double y1 = values[indexs[0]];
             double y2 = values[indexs[1]];
 
-            Log.d("HHHHHHH",x1+"");
-            Log.d("HHHHHHH",x2+"");
-            Log.d("HHHHHHH",y1+"");
-            Log.d("HHHHHHH",y2+"");
-
             value = Helper.getInterpolateValue(x,x1,x2,y1,y2);
 
         }

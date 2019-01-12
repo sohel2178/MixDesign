@@ -1,5 +1,7 @@
 package com.linearbd.mixdesign.helper;
 
+import java.text.DecimalFormat;
+
 public class Exposure {
     public static final int MILD=0;
     public static final int MODERATE=1;
@@ -7,8 +9,10 @@ public class Exposure {
     public static final int VERY_SEVERE=3;
     public static final int EXTREME=4;
 
-    public static final int PLAIN_CONCRETE=5;
-    public static final int REINFORCED_CONCRETE=6;
+    public static final int PLAIN_CONCRETE=0;
+    public static final int REINFORCED_CONCRETE=1;
+
+    private static DecimalFormat df = new DecimalFormat("#.##");
 
 
     public static double getWaterCementRatio(int exposure,int concreteType){

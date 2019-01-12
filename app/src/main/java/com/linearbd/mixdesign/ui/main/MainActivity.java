@@ -138,7 +138,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,M
     public void initAdapter(Query query) {
         adapter = new FirebaseRecyclerAdapter<Data, MixDesignHolder>(Data.class,R.layout.item_mix_design,MixDesignHolder.class,query) {
             @Override
-            protected void populateViewHolder(MixDesignHolder viewHolder, Data model, int position) {
+            protected void populateViewHolder(MixDesignHolder viewHolder, final Data model, int position) {
                 viewHolder.bind(model);
 
                 viewHolder.getItemView().setOnClickListener(new View.OnClickListener() {
@@ -146,6 +146,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,M
                     public void onClick(View view) {
 
                         Intent intent = new Intent(getApplicationContext(), MixDesignActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable(Constant.DATA,model);
+                        intent.putExtras(bundle);
                         startActivity(intent);
 
                     }
