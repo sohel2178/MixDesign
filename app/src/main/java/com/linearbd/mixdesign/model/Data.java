@@ -1,6 +1,8 @@
 package com.linearbd.mixdesign.model;
 
-public class Data {
+import java.io.Serializable;
+
+public class Data implements Serializable {
 
     private String title;
     private String uid;

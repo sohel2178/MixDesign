@@ -13,5 +13,7 @@ public class ConcreteGrade {
     public static final int M50=50;
     public static final int M55=55;
 
+    public static final int[] GRADE_ARRAY ={M10,M15,M20,M25,M30,M35,M40,M45,M50,M55};
+
 
 }

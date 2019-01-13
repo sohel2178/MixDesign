@@ -197,4 +197,99 @@ public class WaterAndAirContent {
     }
 
 
+    public static double getAirContent(String maxAggregateSize,int air_type,int exposure){
+
+        switch (air_type){
+            case AIR_ENTRAINED:
+                switch (exposure){
+                    case Exposure.MILD:
+                        switch (maxAggregateSize){
+                            case AggregateSize.S_10:
+                                return 4.5;
+                            case AggregateSize.S_12_5:
+                                return 4.0;
+                            case AggregateSize.S_20:
+                                return 3.5;
+                            case AggregateSize.S_25:
+                                return 3.0;
+                            case AggregateSize.S_40:
+                                return 2.5;
+                            case AggregateSize.S_50:
+                                return 2.0;
+                            case AggregateSize.S_70:
+                                return 1.5;
+                            case AggregateSize.S_150:
+                                return 1.0;
+                        }
+                        break;
+
+                    case Exposure.MODERATE:
+                        switch (maxAggregateSize){
+                            case AggregateSize.S_10:
+                                return 6.0;
+                            case AggregateSize.S_12_5:
+                                return 5.5;
+                            case AggregateSize.S_20:
+                                return 5.0;
+                            case AggregateSize.S_25:
+                                return 4.5;
+                            case AggregateSize.S_40:
+                                return 4.5;
+                            case AggregateSize.S_50:
+                                return 4;
+                            case AggregateSize.S_70:
+                                return 3.5;
+                            case AggregateSize.S_150:
+                                return 3.0;
+                        }
+                        break;
+
+                    default:
+                        switch (maxAggregateSize){
+                            case AggregateSize.S_10:
+                                return 7.5;
+                            case AggregateSize.S_12_5:
+                                return 7.0;
+                            case AggregateSize.S_20:
+                                return 6.0;
+                            case AggregateSize.S_25:
+                                return 6.0;
+                            case AggregateSize.S_40:
+                                return 5.5;
+                            case AggregateSize.S_50:
+                                return 5;
+                            case AggregateSize.S_70:
+                                return 4.5;
+                            case AggregateSize.S_150:
+                                return 4.0;
+                        }
+                }
+                break;
+            case NON_AIR_ENTRAINED:
+                switch (maxAggregateSize){
+                    case AggregateSize.S_10:
+                        return 3;
+                    case AggregateSize.S_12_5:
+                        return 2.5;
+                    case AggregateSize.S_20:
+                        return 2.0;
+                    case AggregateSize.S_25:
+                        return 1.5;
+                    case AggregateSize.S_40:
+                        return 1.0;
+                    case AggregateSize.S_50:
+                        return 0.5;
+                    case AggregateSize.S_70:
+                        return 0.3;
+                    case AggregateSize.S_150:
+                        return 0.2;
+                }
+                break;
+        }
+
+
+        return 0;
+    }
+
+
 }

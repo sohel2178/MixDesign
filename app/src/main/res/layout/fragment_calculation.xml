@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:auto="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.mixDesign.calculation.CalculationFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_marginStart="@dimen/usual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calculation"
+        android:padding="@dimen/small"
+        android:textSize="@dimen/large_text"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/dark_grey"
+        android:layout_marginStart="@dimen/usual"
+        android:layout_marginEnd="@dimen/usual"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/usual"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step 1: Standard Deviation"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold"
+                    android:padding="@dimen/small"
+                    />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/table_std"
+                    android:scaleType="fitXY"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small"
+                    android:textSize="@dimen/medium_text"
+                    android:id="@+id/std_deviation"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step 2. Himsworth Constant"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold"
+                    android:padding="@dimen/small"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/table_himsworth"
+                    android:scaleType="fitXY"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small"
+                    android:textSize="@dimen/medium_text"
+                    android:id="@+id/himsworth"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step 3. Calculate Mean Strength"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold"
+                    android:padding="@dimen/small"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small"
+                    android:textSize="@dimen/medium_text"
+                    android:id="@+id/min_stn"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step 4. Find Water-Cement Ratio"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold"
+                    android:padding="@dimen/small"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/usual">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="a). Find Water-Cement Ratio from Strength Criteria"
+                        android:textSize="@dimen/medium_text"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/table_water_cement_one"
+                        android:scaleType="fitXY"
+                        android:padding="@dimen/small"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/water_cement_one"
+                        android:textSize="@dimen/medium_text"
+                        android:padding="@dimen/small"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/usual">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="b). Find Water-Cement Ratio from Exposure Criteria"
+                        android:textSize="@dimen/medium_text"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/table_water_cement_two"
+                        android:scaleType="fitXY"
+                        android:padding="@dimen/small"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/water_cement_two"
+                        android:textSize="@dimen/medium_text"
+                        android:padding="@dimen/small"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/water_cement_adopt"
+                    android:textSize="@dimen/medium_text"
+                    android:padding="@dimen/small"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step 5. Find Water Content(kg/m3) and air-content(%)"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold"
+                    android:padding="@dimen/small"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/table_water_content"
+                    android:scaleType="fitXY"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/water_air_content"
+                    android:textSize="@dimen/medium_text"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cement_content"
+                    android:textSize="@dimen/medium_text"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step 6. Find Dry Bulk volume of CA per unit volume of concrete"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold"
+                    android:padding="@dimen/small"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/table_dry_bulk_vol"
+                    android:scaleType="fitXY"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dry_bulk_volume"
+                    android:textSize="@dimen/medium_text"
+                    android:padding="@dimen/small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dry_bulk_volume_txt"
+                    android:textSize="@dimen/medium_text"
+                    android:padding="@dimen/small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Step 7. Absolute Volume of all Materials"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold"
+                    android:padding="@dimen/small"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Item Number"
+                        style="@style/TableHeader" />
+
+                    <TextView
+                        style="@style/TableHeader"
+                        android:layout_weight="2"
+                        android:text="Ingredients"/>
+
+                    <TextView
+                        style="@style/TableHeader"
+                        android:text="Weight\nkg/m3"/>
+
+                    <TextView
+                        style="@style/TableHeader"
+                        android:layout_weight="3"
+                        android:text="Absolute\nVolume"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="1"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:layout_weight="2"
+                        android:text="Cement"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/cement_weight"/>
+
+                    <katex.hourglass.in.mathlib.MathView
+                        app:setTextSize="7sp"
+                        style="@style/TableData"
+                        android:layout_weight="3"
+                        android:id="@+id/cement_volume" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="2"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:layout_weight="2"
+                        android:text="Water"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/water_weight"/>
+
+                    <katex.hourglass.in.mathlib.MathView
+                        app:setTextSize="7sp"
+                        style="@style/TableData"
+                        android:layout_weight="3"
+                        android:id="@+id/water_volume" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="3"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:layout_weight="2"
+                        android:text="Coarse Aggregate"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/ca_weight"/>
+
+                    <katex.hourglass.in.mathlib.MathView
+                        app:setTextSize="7sp"
+                        style="@style/TableData"
+                        android:layout_weight="3"
+                        android:id="@+id/ca_volume" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="4"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:layout_weight="2"
+                        android:text="Air"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/air_weight"/>
+
+                    <katex.hourglass.in.mathlib.MathView
+                        app:setTextSize="7sp"
+                        style="@style/TableData"
+                        android:layout_weight="3"
+                        android:id="@+id/air_volume" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/total_abs_vol"
+                android:textSize="@dimen/medium_text"
+                android:padding="@dimen/small"/>
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

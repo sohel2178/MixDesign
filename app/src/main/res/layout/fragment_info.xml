@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/medium"
+    android:orientation="vertical"
+    tools:context=".ui.mixDesign.info.InfoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/usual"
+        android:padding="@dimen/small"
+        android:text="@string/design_parameters"
+        android:textSize="@dimen/large_text" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/dark_grey"
+        android:layout_marginStart="@dimen/usual"
+        android:layout_marginEnd="@dimen/usual"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TabularLeftText"
+                android:text="@string/sp_gr_coarse" />
+
+            <TextView
+                android:id="@+id/sp_gr_coarse"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/sp_gr_fine"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/sp_gr_fine"
+               style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/fineness_modulus"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/fineness_modulus"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/dry_rodded_bulk_density"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/dry_rodded_bulk_density"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/design_stn"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/design_stn"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/max_size_of_aggregate"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/max_size_of_aggregate"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/slump"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/slump"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/concrete_type"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/concrete_type"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/air_entrained_type"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/air_entrained_type"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/exposure_cond"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/exposure_cond"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/absorption_capacity_of_ca"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/absorption_capacity_of_ca"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="@string/moisture_content_of_fa"
+                style="@style/TabularLeftText"/>
+
+            <TextView
+                android:id="@+id/moisture_content_of_fa"
+                style="@style/TabularRightText" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

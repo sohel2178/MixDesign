@@ -85,5 +85,40 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="TabularLeftText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:padding">@dimen/small</item>
+        <item name="android:textSize">@dimen/medium_text</item>
+        <item name="android:textColor">#444444</item>
+    </style>
+
+    <style name="TabularRightText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">@dimen/small</item>
+        <item name="android:textSize">@dimen/medium_text</item>
+        <item name="android:textColor">#444444</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="TableHeader">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">@dimen/small</item>
+    </style>
+
+    <style name="TableData" parent="TableHeader">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
 
 </resources>
