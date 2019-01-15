@@ -439,12 +439,52 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/total_abs_vol"
-                android:textSize="@dimen/medium_text"
-                android:padding="@dimen/small"/>
+                android:padding="@dimen/small">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total absolute volume"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/medium_text"
+                    />
+
+                <katex.hourglass.in.mathlib.MathView
+                    android:layout_gravity="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/total_abs_vol"
+                    app:setTextSize="8sp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Therefore absolute volume of FA"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/medium_text"
+                    />
+
+                <katex.hourglass.in.mathlib.MathView
+                    android:layout_gravity="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/abs_vol_fa"
+                    app:setTextSize="8sp" />
+
+            </LinearLayout>
+
+
 
 
 

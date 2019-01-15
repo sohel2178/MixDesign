@@ -31,9 +31,9 @@ import katex.hourglass.in.mathlib.MathView;
 public class CalculationFragment extends BaseFragment implements CalculationContract.View {
 
     private TextView tvStdDev,tvHimsWorth,tvMinStn,tvWaterCementOne,tvWaterCementTwo,tvWaterCementAdopt,
-            tvWaterCAirContent,tvCementContent,tvDryBulkVolume,tvDryBulkVolumeTxt,tvCementWeight,tvWaterWeight,tvCAWeight,tvTotalAbsVol;
+            tvWaterCAirContent,tvCementContent,tvDryBulkVolume,tvDryBulkVolumeTxt,tvCementWeight,tvWaterWeight,tvCAWeight;
 
-    private MathView tvCementVolume,mvWaterVolume,mvCAVolume,mvAirVolume;
+    private MathView tvCementVolume,mvWaterVolume,mvCAVolume,mvAirVolume,mvTotalAbsVol,mvAbsVolFA;
 
     private CalculationPresenter mPresenter;
 
@@ -72,11 +72,12 @@ public class CalculationFragment extends BaseFragment implements CalculationCont
         tvCementWeight = view.findViewById(R.id.cement_weight);
         tvCementVolume = view.findViewById(R.id.cement_volume);
         tvWaterWeight = view.findViewById(R.id.water_weight);
-        tvTotalAbsVol = view.findViewById(R.id.total_abs_vol);
+        mvTotalAbsVol = view.findViewById(R.id.total_abs_vol);
         mvWaterVolume = view.findViewById(R.id.water_volume);
         tvCAWeight = view.findViewById(R.id.ca_weight);
         mvCAVolume = view.findViewById(R.id.ca_volume);
         mvAirVolume = view.findViewById(R.id.air_volume);
+        mvAbsVolFA = view.findViewById(R.id.abs_vol_fa);
 
 
         mPresenter.initialize(getData());
@@ -99,6 +100,7 @@ public class CalculationFragment extends BaseFragment implements CalculationCont
         double dryBulkVolume = DryBulkVolByUnitVol.getBulkVolPerUnitVol(AggregateSize.sizeArray[data.getMaz_size_ca()],data.getFm_fa());
         double cementWeight = waterContent/(Math.min(waterCementOne,waterCementTwo));
         double caWeight = dryBulkVolume*data.getBulk_density_ca();
+        double combineVolume = ((cementWeight/3.15)+(waterContent/1.00)+(caWeight/data.getSp_gr_ca())+(airContent*1000/100));
 
         tvStdDev.setText("From above Table assume standard deviation for "+ designStn +" grade concrete is "+std_deviation+" MPa");
         tvHimsWorth.setText("Assume 5% of result are allowed to fall below specified design strength.\nForm above find the value of K = "+String.format("%.2f",k));
@@ -132,7 +134,9 @@ public class CalculationFragment extends BaseFragment implements CalculationCont
         mvCAVolume.setDisplayText("$\\frac"+"{"+String.format("%.2f",caWeight)+"}"+"{"+String.format("%.2f",data.getSp_gr_ca())+"}"+"\\times{10^3} = "+String.format("%.2f",(caWeight/data.getSp_gr_ca()))+"\\times{10^3}"+"$");
         mvAirVolume.setDisplayText("$\\frac"+"{"+String.format("%.2f",airContent)+"}"+"{100}"+"\\times{10^6} = "+String.format("%.2f",(airContent*1000/100))+"\\times{10^3}"+"$");
 
-        tvTotalAbsVol.setText("Total absolute volume = "+String.format("%.2f",((cementWeight/3.15)+(waterContent/1.00)+(caWeight/data.getSp_gr_ca())+(airContent*1000/100))));
+        mvTotalAbsVol.setDisplayText("$= "+String.format("%.2f",combineVolume)+"\\times{10^3} {cm^3}$");
+        mvTotalAbsVol.setDisplayText("$= "+"(1000-"+String.format("%.2f",combineVolume)+")\\times{10^3}$"+"\n="
+        +String.format("%.2f",(1000-combineVolume))+"\\times{10^3}"+"$");
         Log.d("YYYYY",waterContent+"");
         Log.d("YYYYY",dryBulkVolume+"");
     }
