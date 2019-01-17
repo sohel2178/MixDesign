@@ -28,7 +28,7 @@
         </activity>
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".ui.documentation.DocumentationActivity" />
-        <activity android:name=".ui.mixDesign.MixDesignActivity"></activity>
+        <activity android:name=".ui.mixDesign.MixDesignActivity"/>
     </application>
 
 </manifest>

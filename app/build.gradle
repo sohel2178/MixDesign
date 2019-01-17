@@ -46,6 +46,8 @@ dependencies {
     implementation "com.google.android.gms:play-services-auth:$g_version"
     implementation 'com.firebaseui:firebase-ui-database:2.3.0'
     implementation 'in.hourglass.mathrender:katexmathview:1.0'
+    implementation 'com.github.HendrixString:Android-PdfMyXml:v1.0.1'
+    implementation 'com.ramotion.foldingcell:folding-cell:1.2.2'
 
     // Arch
     implementation "android.arch.lifecycle:runtime:$arch_version"

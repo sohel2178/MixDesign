@@ -49,6 +49,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,M
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         setupToolbar();
         getSupportActionBar().setTitle(getString(R.string.app_name));
 
@@ -138,19 +139,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,M
     public void initAdapter(Query query) {
         adapter = new FirebaseRecyclerAdapter<Data, MixDesignHolder>(Data.class,R.layout.item_mix_design,MixDesignHolder.class,query) {
             @Override
-            protected void populateViewHolder(MixDesignHolder viewHolder, final Data model, int position) {
+            protected void populateViewHolder(final MixDesignHolder viewHolder, final Data model, int position) {
                 viewHolder.bind(model);
 
                 viewHolder.getItemView().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
-                        Intent intent = new Intent(getApplicationContext(), MixDesignActivity.class);
+                       /* Intent intent = new Intent(getApplicationContext(), MixDesignActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putSerializable(Constant.DATA,model);
                         intent.putExtras(bundle);
-                        startActivity(intent);
+                        startActivity(intent);*/
 
+                    }
+                });
+
+                viewHolder.getmFoldingCell().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        viewHolder.getmFoldingCell().toggle(false);
                     }
                 });
             }
