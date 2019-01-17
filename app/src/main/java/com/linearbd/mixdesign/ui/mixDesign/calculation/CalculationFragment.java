@@ -31,9 +31,12 @@ import katex.hourglass.in.mathlib.MathView;
 public class CalculationFragment extends BaseFragment implements CalculationContract.View {
 
     private TextView tvStdDev,tvHimsWorth,tvMinStn,tvWaterCementOne,tvWaterCementTwo,tvWaterCementAdopt,
-            tvWaterCAirContent,tvCementContent,tvDryBulkVolume,tvDryBulkVolumeTxt,tvCementWeight,tvWaterWeight,tvCAWeight;
+            tvWaterCAirContent,tvCementContent,tvDryBulkVolume,tvDryBulkVolumeTxt,tvCementWeight,tvWaterWeight,tvCAWeight,
+            tvCementWeightTwo,tvWaterWeightTwo,tvCAWeightTwo,tvFAWeightTwo,tvFieldTitle,tvCaAbsorption,
+            tvWaterOne,tvWaterTwo,tvCementField,tvWaterField,tvCAField,tvFAField;
 
-    private MathView tvCementVolume,mvWaterVolume,mvCAVolume,mvAirVolume,mvTotalAbsVol,mvAbsVolFA;
+    private MathView tvCementVolume,mvWaterVolume,mvCAVolume,mvAirVolume,mvTotalAbsVol,mvAbsVolFA,mvWeightFA,
+            mvTotalFreeMoisture,mvWtFAField,mvQtyCAAbsrp,mvWtofCAinField;
 
     private CalculationPresenter mPresenter;
 
@@ -78,6 +81,27 @@ public class CalculationFragment extends BaseFragment implements CalculationCont
         mvCAVolume = view.findViewById(R.id.ca_volume);
         mvAirVolume = view.findViewById(R.id.air_volume);
         mvAbsVolFA = view.findViewById(R.id.abs_vol_fa);
+        mvWeightFA = view.findViewById(R.id.weight_vol_fa);
+
+        tvCementWeightTwo = view.findViewById(R.id.cement_weight_two);
+        tvWaterWeightTwo = view.findViewById(R.id.water_weight_two);
+        tvCAWeightTwo = view.findViewById(R.id.ca_weight_two);
+        tvFAWeightTwo = view.findViewById(R.id.fine_aggregare_two);
+
+        tvFieldTitle = view.findViewById(R.id.field_title);
+        mvTotalFreeMoisture = view.findViewById(R.id.total_free_moisture);
+        mvWtFAField = view.findViewById(R.id.wt_of_fa_field);
+        tvCaAbsorption = view.findViewById(R.id.ca_absorption);
+        mvQtyCAAbsrp = view.findViewById(R.id.qty_of_water_absorped_by_ca);
+        mvWtofCAinField = view.findViewById(R.id.wt_of_ca_in_field);
+
+        tvWaterOne = view.findViewById(R.id.water_one);
+        tvWaterTwo = view.findViewById(R.id.water_two);
+
+        tvCementField = view.findViewById(R.id.cement_weight_field);
+        tvWaterField = view.findViewById(R.id.water_weight_field);
+        tvCAField = view.findViewById(R.id.ca_weight_field);
+        tvFAField = view.findViewById(R.id.fine_aggregare_field);
 
 
         mPresenter.initialize(getData());
@@ -135,8 +159,61 @@ public class CalculationFragment extends BaseFragment implements CalculationCont
         mvAirVolume.setDisplayText("$\\frac"+"{"+String.format("%.2f",airContent)+"}"+"{100}"+"\\times{10^6} = "+String.format("%.2f",(airContent*1000/100))+"\\times{10^3}"+"$");
 
         mvTotalAbsVol.setDisplayText("$= "+String.format("%.2f",combineVolume)+"\\times{10^3} {cm^3}$");
-        mvTotalAbsVol.setDisplayText("$= "+"(1000-"+String.format("%.2f",combineVolume)+")\\times{10^3}$"+"\n="
-        +String.format("%.2f",(1000-combineVolume))+"\\times{10^3}"+"$");
+        mvAbsVolFA.setDisplayText("Threrefore absolute volume of FA"+"$ = "+"(1000-"+String.format("%.2f",combineVolume)+")\\times{10^3}="+String.format("%.2f",(1000-combineVolume))+"\\times{10^3}$");
+        mvWeightFA.setDisplayText("So, Weight of FA "+"$ = "+String.format("%.2f",(1000-combineVolume))+"\\times"+data.getSp_gr_fa()+" = "+String.format("%.2f",(1000-combineVolume)*data.getSp_gr_fa())+" kg/{m^3}$");
+
+        tvCementWeightTwo.setText(String.format("%.2f",cementWeight)+" Kg");
+        tvWaterWeightTwo.setText(String.format("%.2f",waterContent)+" Kg");
+        tvCAWeightTwo.setText(String.format("%.2f",caWeight)+" Kg");
+        tvFAWeightTwo.setText(String.format("%.2f",(1000-combineVolume)*data.getSp_gr_fa())+" Kg");
+
+        tvFieldTitle.setText("The proportions are required to be adjusted for the field conditions. FA has surface" +
+                " moisture of "+data.getSurface_moisture_of_fa()+" percent");
+
+        double fieldMoistureContent = (1000-combineVolume)*data.getSp_gr_fa()*data.getSurface_moisture_of_fa()/100;
+
+        mvTotalFreeMoisture.setDisplayText("Total free surface moisture in FA "+"$= \\frac{"+data.getSurface_moisture_of_fa()+"}{100}\\times"
+                +String.format("%.2f",(1000-combineVolume)*data.getSp_gr_fa())
+                +" = "+String.format("%.2f",fieldMoistureContent)+" Kg $");
+
+        double fieldFAWeight = (1000-combineVolume)*data.getSp_gr_fa()+fieldMoistureContent;
+
+        mvWtFAField.setDisplayText("Weight of F.A in field condition "+"$="+String.format("%.2f",(1000-combineVolume)*data.getSp_gr_fa())+" + "
+                +String.format("%.2f",fieldMoistureContent)
+                +" = "+String.format("%.2f",((1000-combineVolume)*data.getSp_gr_fa()+fieldMoistureContent))+"Kg$");
+
+        tvCaAbsorption.setText("C.A absorbs "+data.getAbsorption_capacity_of_ca()+ "% water");
+        double caAbsorpWater = data.getAbsorption_capacity_of_ca()*caWeight/100;
+        mvQtyCAAbsrp.setDisplayText("Quantity of water absorbed by C.A "
+                +"$=\\frac {"+data.getAbsorption_capacity_of_ca()+"} {100}" +
+                "\\times"+String.format("%.2f",caWeight)+
+                " = "+String.format("%.2f",caAbsorpWater)+"Kg$");
+
+        double fieldCAWeignt = caWeight-caAbsorpWater;
+
+        mvWtofCAinField.setDisplayText("Weight of C.A in field condition"
+                +"$"+String.format("%.2f",caWeight)+" - "+String.format("%.2f",caAbsorpWater)
+                +" = "+String.format("%.2f",(caWeight-caAbsorpWater))+"Kg$");
+
+        tvWaterOne.setText("With regard to water, "+String.format("%.2f",fieldMoistureContent)
+                +" kg of water is contributed by F.A and "
+                +String.format("%.2f",caAbsorpWater)+" kg of water is " +
+                "absorbed by C.A");
+
+        double fieldWaterContent = waterContent-(fieldMoistureContent-caAbsorpWater);
+
+        tvWaterTwo.setText("Therefore "
+                +String.format("%.2f",fieldMoistureContent)+" - "+String.format("%.2f",caAbsorpWater)
+                +"= "+String.format("%.2f",(fieldMoistureContent-caAbsorpWater))+" kg of extra water is contributed by aggregates. This "
+                +"quantity of water is deducted from Total water\n\t\t"
+                +String.format("%.2f",waterContent)+" - "+String.format("%.2f",(fieldMoistureContent-caAbsorpWater))
+                +" = "+String.format("%.2f",fieldWaterContent)+" Kg"
+        );
+
+        tvCementField.setText(String.format("%.2f",cementWeight)+" Kg");
+        tvWaterField.setText(String.format("%.2f",fieldWaterContent)+" Kg");
+        tvCAField.setText(String.format("%.2f",fieldCAWeignt)+" Kg");
+        tvFAField.setText(String.format("%.2f",fieldFAWeight)+" Kg");
         Log.d("YYYYY",waterContent+"");
         Log.d("YYYYY",dryBulkVolume+"");
     }

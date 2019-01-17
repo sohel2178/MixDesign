@@ -461,26 +461,327 @@
 
             </LinearLayout>
 
+            <katex.hourglass.in.mathlib.MathView
+                android:padding="@dimen/small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/abs_vol_fa"
+                app:setTextSize="8sp" />
+
+            <katex.hourglass.in.mathlib.MathView
+                android:padding="@dimen/small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/weight_vol_fa"
+                app:setTextSize="8sp" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estimated quantity of materials per cubic meter of concrete"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold"
+                    android:padding="@dimen/small"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="1"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:text="Cement"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/cement_weight_two"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="2"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:text="Water"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/water_weight_two"/>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="3"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:text="Coarse Aggregate"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/ca_weight_two"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="4"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:text="Fine Aggregate"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/fine_aggregare_two"/>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:padding="@dimen/small">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Therefore absolute volume of FA"
-                    android:gravity="center_vertical"
+                    android:id="@+id/field_title"
+                    android:padding="@dimen/small"
                     android:textSize="@dimen/medium_text"
                     />
 
                 <katex.hourglass.in.mathlib.MathView
-                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/usual"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/abs_vol_fa"
-                    app:setTextSize="8sp" />
+                    android:id="@+id/total_free_moisture"
+                    android:padding="@dimen/small"
+                    app:setTextSize="8sp"
+                    />
+
+                <katex.hourglass.in.mathlib.MathView
+                    android:layout_marginTop="@dimen/usual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wt_of_fa_field"
+                    android:padding="@dimen/small"
+                    app:setTextSize="8sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ca_absorption"
+                    android:padding="@dimen/small"
+                    android:textSize="@dimen/medium_text"
+                    />
+
+                <katex.hourglass.in.mathlib.MathView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/qty_of_water_absorped_by_ca"
+                    android:padding="@dimen/small"
+                    app:setTextSize="8sp"
+                    />
+
+                <katex.hourglass.in.mathlib.MathView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wt_of_ca_in_field"
+                    android:padding="@dimen/small"
+                    app:setTextSize="8sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/water_one"
+                    android:padding="@dimen/small"
+                    android:textSize="@dimen/medium_text"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/water_two"
+                    android:padding="@dimen/small"
+                    android:textSize="@dimen/medium_text"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quantity of materials per cubic meter of concrete in Field Condition"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold"
+                    android:padding="@dimen/small"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="1"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:text="Cement"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/cement_weight_field"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="2"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:text="Water"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/water_weight_field"/>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="3"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:text="Coarse Aggregate"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/ca_weight_field"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="4"
+                        style="@style/TableData" />
+
+                    <TextView
+                        style="@style/TableData"
+                        android:text="Fine Aggregate"/>
+
+                    <TextView
+                        style="@style/TableData"
+                        android:id="@+id/fine_aggregare_field"/>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_marginBottom="@dimen/usual"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorAccent"/>
+
 
             </LinearLayout>
 
