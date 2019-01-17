@@ -28,7 +28,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/usual">
 
             <Button
                 android:layout_width="wrap_content"
@@ -59,38 +60,30 @@
             android:layout_marginEnd="@dimen/usual"
             />
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="@dimen/medium"
-            app:cardCornerRadius="@dimen/small"
-            android:layout_margin="@dimen/usual">
+            android:layout_margin="@dimen/usual"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/medium"
-                android:orientation="vertical">
+                android:text="Mix Design List"
+                android:padding="@dimen/small"
+                android:id="@+id/list_title"
+                android:textSize="@dimen/large_text"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mix Design List"
-                    android:padding="@dimen/small"
-                    android:id="@+id/list_title"
-                    android:textSize="@dimen/large_text"/>
+            <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="@dimen/usual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerView">
 
-                <android.support.v7.widget.RecyclerView
-                    android:layout_marginTop="@dimen/usual"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/recyclerView">
+            </android.support.v7.widget.RecyclerView>
 
-                </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
 
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
 
 
 
