@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.linearbd.mixdesign.R;
@@ -23,6 +24,7 @@ public class MixDesignHolder extends RecyclerView.ViewHolder {
     TextView tvTitle,tvCement,tvCA,tvFA,tvWater;
     FoldingCell mFoldingCell;
     private Context context;
+    Button btnDetail;
 
     public MixDesignHolder(@NonNull View itemView) {
         super(itemView);
@@ -35,6 +37,7 @@ public class MixDesignHolder extends RecyclerView.ViewHolder {
         tvCA = itemView.findViewById(R.id.ca_weight);
         tvFA = itemView.findViewById(R.id.fa_weight);
         tvWater = itemView.findViewById(R.id.water_weight);
+        btnDetail = itemView.findViewById(R.id.detail);
 
     }
 
@@ -48,8 +51,8 @@ public class MixDesignHolder extends RecyclerView.ViewHolder {
         tvWater.setText(String.format("%.2f",result[3]));
     }
 
-    public View getItemView(){
-        return this.itemView;
+    public View getDetailButton(){
+        return this.btnDetail;
     }
 
     public FoldingCell getmFoldingCell() {

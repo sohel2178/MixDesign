@@ -48,6 +48,8 @@ dependencies {
     implementation 'in.hourglass.mathrender:katexmathview:1.0'
     implementation 'com.github.HendrixString:Android-PdfMyXml:v1.0.1'
     implementation 'com.ramotion.foldingcell:folding-cell:1.2.2'
+    implementation 'pub.devrel:easypermissions:0.4.2'
+    implementation 'com.itextpdf:itextg:5.5.10'
 
     // Arch
     implementation "android.arch.lifecycle:runtime:$arch_version"

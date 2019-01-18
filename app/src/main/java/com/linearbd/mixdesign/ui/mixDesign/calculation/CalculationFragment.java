@@ -1,7 +1,15 @@
 package com.linearbd.mixdesign.ui.mixDesign.calculation;
 
 
+import android.Manifest;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Html;
@@ -9,8 +17,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.hendrix.pdfmyxml.PdfDocument;
+import com.hendrix.pdfmyxml.viewRenderer.AbstractViewRenderer;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.linearbd.mixdesign.R;
 import com.linearbd.mixdesign.helper.AggregateSize;
 import com.linearbd.mixdesign.helper.ConcreteGrade;
@@ -23,12 +42,30 @@ import com.linearbd.mixdesign.helper.WaterCementFromCompressiveStrength;
 import com.linearbd.mixdesign.model.Data;
 import com.linearbd.mixdesign.ui.mixDesign.BaseFragment;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.nio.file.Path;
+import java.util.Date;
+
 import katex.hourglass.in.mathlib.MathView;
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CalculationFragment extends BaseFragment implements CalculationContract.View {
+    private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
+            Font.BOLD);
+    private static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+            Font.NORMAL, BaseColor.RED);
+    private static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16,
+            Font.BOLD);
+    private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+            Font.BOLD);
+
+    private static final int READ_WRITE_PERMISSION=3000;
 
     private TextView tvStdDev,tvHimsWorth,tvMinStn,tvWaterCementOne,tvWaterCementTwo,tvWaterCementAdopt,
             tvWaterCAirContent,tvCementContent,tvDryBulkVolume,tvDryBulkVolumeTxt,tvCementWeight,tvWaterWeight,tvCAWeight,
@@ -38,7 +75,11 @@ public class CalculationFragment extends BaseFragment implements CalculationCont
     private MathView tvCementVolume,mvWaterVolume,mvCAVolume,mvAirVolume,mvTotalAbsVol,mvAbsVolFA,mvWeightFA,
             mvTotalFreeMoisture,mvWtFAField,mvQtyCAAbsrp,mvWtofCAinField;
 
+    private ScrollView mScrollView;
+
     private CalculationPresenter mPresenter;
+
+    private TextView tvDownLoad;
 
 
     public CalculationFragment() {
@@ -62,6 +103,14 @@ public class CalculationFragment extends BaseFragment implements CalculationCont
     }
 
     private void initView(View view) {
+        mScrollView = view.findViewById(R.id.scroll_view);
+        tvDownLoad = view.findViewById(R.id.download);
+        tvDownLoad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                externalStoragePermission();
+            }
+        });
         tvStdDev = view.findViewById(R.id.std_deviation);
         tvHimsWorth = view.findViewById(R.id.himsworth);
         tvMinStn = view.findViewById(R.id.min_stn);
@@ -216,5 +265,191 @@ public class CalculationFragment extends BaseFragment implements CalculationCont
         tvFAField.setText(String.format("%.2f",fieldFAWeight)+" Kg");
         Log.d("YYYYY",waterContent+"");
         Log.d("YYYYY",dryBulkVolume+"");
+    }
+
+
+    @AfterPermissionGranted(READ_WRITE_PERMISSION)
+    private void externalStoragePermission() {
+        String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE};
+        if (EasyPermissions.hasPermissions(getContext(), perms)) {
+            //takeScreenShot(getData().getTitle());
+
+            createPdf();
+
+        } else {
+            // Do not have permissions, request them now
+            EasyPermissions.requestPermissions(this, "App need to Permission for Location",
+                    READ_WRITE_PERMISSION, perms);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        EasyPermissions.onRequestPermissionsResult(
+                requestCode, permissions, grantResults, this);
+    }
+
+
+    private void saveFile(AbstractViewRenderer page){
+        new PdfDocument.Builder(getContext()).addPage(page).orientation(PdfDocument.A4_MODE.LANDSCAPE)
+                .progressMessage(R.string.gen_pdf_file).progressTitle(R.string.gen_please_wait)
+                .renderWidth(2115).renderHeight(1500)
+                .saveDirectory(getContext().getExternalFilesDir(null))
+                .filename("test")
+                .listener(new PdfDocument.Callback() {
+                    @Override
+                    public void onComplete(File file) {
+                        Log.i(PdfDocument.TAG_PDF_MY_XML, "Complete");
+                        Log.d("KKKKKK", "Complete");
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Log.i(PdfDocument.TAG_PDF_MY_XML, "Error");
+                        Log.d("KKKKKK", "Error");
+                    }
+                }).create().createPdf(getContext());
+    }
+
+
+    private void createPdf(){
+        Document document = new Document();
+
+        String file = Environment.getExternalStorageDirectory().getPath()+"/MixDesign";
+        File dir1 = new File(file);
+
+        if(dir1.exists()){
+            Log.d("HHHH","Directtory Exist "+file);
+        }else{
+            Log.d("HHHH","Directtory Not Exist "+file);
+            dir1.mkdir();
+        }
+
+        String filePath = file+"/test.pdf";
+
+        try {
+            PdfWriter.getInstance(document,new FileOutputStream(filePath));
+            document.open();
+            document.setPageSize(PageSize.A4);
+            document.addCreationDate();
+
+            addMetaData(document);
+            addTitlePage(document);
+            addContent(document);
+
+            document.close();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void addMetaData(Document document){
+        document.addTitle("My first PDF");
+        document.addSubject("Using iText");
+        document.addKeywords("Java, PDF, iText");
+        document.addAuthor("Sohel Ahmed");
+        document.addCreator("Forbit Tech");
+
+    }
+
+    private void addTitlePage (Document document) throws DocumentException{
+        Paragraph preface = new Paragraph();
+        // We add one empty line
+        addEmptyLine(preface, 1);
+        // Lets write a big header
+        preface.add(new Paragraph("Title of the document", catFont));
+
+        addEmptyLine(preface, 1);
+        // Will create: Report generated by: _name, _date
+        //document.add(new Paragraph("\n"));
+        preface.add(new Paragraph(
+                "Report generated by: " +"Sohel Ahmed" + ", " + new Date(), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                smallBold));
+        addEmptyLine(preface, 3);
+        //document.add(new Paragraph("\n\n\n"));
+
+        preface.add(new Paragraph(
+                "This document describes something which is very important ",
+                smallBold));
+
+        addEmptyLine(preface, 8);
+        //document.add(new Paragraph("\n\n\n\n\n\n"));
+
+
+        preface.add(new Paragraph(
+                "This document is a preliminary version and not subject to your license agreement or any other agreement with vogella.com ;-).",
+                redFont));
+
+        document.add(preface);
+        // Start a new page
+        document.newPage();
+    }
+
+    private void addContent(Document document){
+
+    }
+
+
+    /*@Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(
+                requestCode, permissions, grantResults, this);
+    }*/
+
+    private void takeScreenShot(String title) {
+        int totalHeight = mScrollView.getChildAt(0).getHeight();
+        int totalWidth = mScrollView.getChildAt(0).getWidth();
+
+        Bitmap b = getBitmapFromView(mScrollView,totalHeight,totalWidth);
+
+        //Save bitmap
+        String extr = Environment.getExternalStorageDirectory()+"/data/";
+        String fileName = title+".jpg";
+        File myPath = new File(extr, fileName);
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(myPath);
+            b.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+            MediaStore.Images.Media.insertImage(getContext().getContentResolver(), b, "Screen", "screen");
+        }catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            Log.d("HHHHH","File Not Found Exception");
+            e.printStackTrace();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            Log.d("HHHHH","File Not Found Exception "+e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+
+    public Bitmap getBitmapFromView(View view, int totalHeight, int totalWidth) {
+
+        Bitmap returnedBitmap = Bitmap.createBitmap(totalWidth,totalHeight , Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(returnedBitmap);
+        Drawable bgDrawable = view.getBackground();
+        if (bgDrawable != null)
+            bgDrawable.draw(canvas);
+        else
+            canvas.drawColor(Color.WHITE);
+        view.draw(canvas);
+        return returnedBitmap;
+    }
+
+
+    private static void addEmptyLine(Paragraph paragraph, int number) {
+        for (int i = 0; i < number; i++) {
+            paragraph.add(new Paragraph(" "));
+        }
     }
 }

@@ -49,6 +49,8 @@
     <string name="absorption_capacity_of_ca">Absorption Capacity of CA</string>
     <string name="moisture_content_of_fa">Surface Moisture of FA</string>
     <string name="calculation">Calculations</string>
+    <string name="gen_pdf_file">Gen PDF File</string>
+    <string name="gen_please_wait">Please Wait</string>
 
 
     <string-array name="ca_absorption_array">

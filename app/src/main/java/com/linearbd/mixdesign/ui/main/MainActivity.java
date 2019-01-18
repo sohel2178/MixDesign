@@ -142,16 +142,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,M
             protected void populateViewHolder(final MixDesignHolder viewHolder, final Data model, int position) {
                 viewHolder.bind(model);
 
-                viewHolder.getItemView().setOnClickListener(new View.OnClickListener() {
+                viewHolder.getDetailButton().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
-                       /* Intent intent = new Intent(getApplicationContext(), MixDesignActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MixDesignActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putSerializable(Constant.DATA,model);
                         intent.putExtras(bundle);
-                        startActivity(intent);*/
-
+                        startActivity(intent);
                     }
                 });
 
