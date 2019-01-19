@@ -20,16 +20,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/calculation"
+            android:layout_centerVertical="true"
             android:padding="@dimen/small"
             android:textSize="@dimen/large_text"/>
 
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/download"
             android:text="download"
-            android:padding="@dimen/small"
-            android:textSize="@dimen/large"
+            android:drawableEnd="@android:drawable/stat_sys_download"
+            android:drawableTint="@color/colorAccent"
             android:layout_alignParentEnd="true"/>
 
     </RelativeLayout>

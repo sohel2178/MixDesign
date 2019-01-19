@@ -12,7 +12,7 @@
         android:id="@+id/folding_cell"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        folding-cell:animationDuration="700"
+        folding-cell:animationDuration="500"
         folding-cell:backSideColor="@color/dark_grey"
         folding-cell:cameraHeight="30"
         folding-cell:additionalFlipsCount="0"
@@ -214,7 +214,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/title"
-                android:padding="@dimen/small"
+                android:padding="@dimen/large"
                 android:textSize="@dimen/large_text"/>
         </FrameLayout>
         ​
